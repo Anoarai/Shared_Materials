@@ -7,7 +7,7 @@ Mostly serve only as a way of speeding up coding!
 
 
 C# Language - Visual Studio:
->[C# language](https://github.com/Anoarai/Shared_Materials/tree/main/C%23)
+ - [C# language](https://github.com/Anoarai/Shared_Materials/tree/main/C%23)
 
 
 CSS Tools:
@@ -23,4 +23,4 @@ Ruby:
 
 
 Extra tools:
->[Color Combination Helper](https://learnui.design/tools/accessible-color-generator.html)
+ - [Color Combination Helper](https://learnui.design/tools/accessible-color-generator.html)
