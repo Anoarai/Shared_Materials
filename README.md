@@ -1,5 +1,5 @@
 # Shared_Materials
- Materials for use when building a C# Project
+ Materials for use when building yout Projects!
 
 These materials are free to get.
 Mostly serve only as a way of speeding up coding!
@@ -8,4 +8,4 @@ Mostly serve only as a way of speeding up coding!
 
 C# Language - Visual Studio:
 
-[Logging Middleware](https://github.com/Anoarai/Shared_Materials/blob/main/LoggingMiddleware.cs)
+[C# language](https://github.com/Anoarai/Shared_Materials/tree/main/C%23)

@@ -67,7 +67,7 @@ namespace FoxClub
 
 
                 /*Also possible to call for items like this:
-                 * dataQuery.Keys = Paremeters as you can see insert them into body
+                 * dataQuery.Keys = Paremeters as you can insert them into body
                  */
                 if (dataQuery.Keys.Count > 0)
                 {
