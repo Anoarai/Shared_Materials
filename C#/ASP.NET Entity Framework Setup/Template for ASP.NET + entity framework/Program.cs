@@ -10,7 +10,7 @@ var testapi = builder.Configuration["User:Username"];
 // Add services to the container.
 builder.Services.AddMvc();
 ConfigureDb(builder.Services);
-builder.Services.AddScoped<ILogService, LogService>();
+builder.Services.AddTransient<ILogService, LogService>();
 
 
 
