@@ -1,4 +1,4 @@
-To use the Template please copy the download the .zip file into **Templates\ProjectTemplates directory** and DO NOT UNZIP IT!!!! Paste it in there as the zip file.
+To use the Template please copy the download the .zip file into **Documents\Visual Studio 2022\Templates\ProjectTemplates directory** and DO NOT UNZIP IT!!!! Paste it in there as the zip file.
 
 When creating a new project you can select it as a Template.
 
