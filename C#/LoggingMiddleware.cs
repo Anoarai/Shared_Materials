@@ -67,17 +67,17 @@ namespace FoxClub
 
                 logService.AddLog(
                         method,
-                        functionName
+                        functionName,
                         calledParameters);
             }
             else if (method == "GET") //Reads QueryString
             {
                 var query = HttpUtility.ParseQueryString(httpContext.Request.QueryString.ToString());
-                var calledParameters = string.Join(";;", dataQuery); // All of the called paremeters joined into a single string:
+                var calledParameters = string.Join(";;", query); // All of the called paremeters joined into a single string:
                 
                 logService.AddLog(
                         method,
-                        functionName
+                        functionName,
                         calledParameters);
             }
             return _next(httpContext);
