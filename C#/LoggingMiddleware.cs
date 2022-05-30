@@ -10,7 +10,7 @@ using System.Web;
  * Required implementations:
  * 
  * app.UseMiddleware<LoggingMiddleware>();                    --- After .UseRouting !!!
- * builder.Services.AddSingleton<***LogService***>();         --- *** Your Version of Logging Service / Scoped if using database
+ * builder.Services.AddTransient<ILogService, LogService>();  --- *** Your Version of Logging Service / Singleton if using database
  * Log Class                                                  --- Your version of Log Class
  * 
  * Replace the the specific items on the marked lines with ????
