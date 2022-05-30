@@ -65,31 +65,20 @@ namespace FoxClub
                 
                 var calledParameters = string.Join(";;", dataQuery); // All of the called paremeters joined into a single string:
 
-
-                /*Also possible to call for items like this:
-                 * dataQuery.Keys = Paremeters as you can insert them into body
-                 */
-                if (dataQuery.Keys.Count > 0)
-                {
-                    logService.AddLog(  //????
-                        dataQuery.Get(0) ?? string.Empty,
-                        functionName,
+                logService.AddLog(
                         method,
-                        dataQuery.Keys.Count > 1 ? dataQuery.Get(1).ToString() ?? string.Empty : string.Empty,
-                        dataQuery.Keys.Count > 2 ? dataQuery.Get(2).ToString() ?? string.Empty : string.Empty);
-                }
+                        functionName
+                        calledParameters);
             }
             else if (method == "GET") //Reads QueryString
             {
                 var query = HttpUtility.ParseQueryString(httpContext.Request.QueryString.ToString());
-                if (query.Keys.Count > 0)
-                {
-                    logService.AddLog(query.Get(0) ?? String.Empty, //????
-                                     functionName,
-                                     method,
-                                     query.Keys.Count > 1 ? query.Get(1) ?? String.Empty : "",
-                                     query.Keys.Count > 2 ? query.Get(2) ?? String.Empty : "");
-                }
+                var calledParameters = string.Join(";;", dataQuery); // All of the called paremeters joined into a single string:
+                
+                logService.AddLog(
+                        method,
+                        functionName
+                        calledParameters);
             }
             return _next(httpContext);
         }
