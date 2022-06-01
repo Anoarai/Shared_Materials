@@ -2,6 +2,6 @@
 {
     public interface ILogService
     {
-        void AddLog(string method, string functionName, string Parameters);
+        public void AddLog(string method, string functionName, string statusCode, string parameters);
     }
 }

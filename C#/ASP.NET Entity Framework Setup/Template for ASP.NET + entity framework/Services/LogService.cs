@@ -12,9 +12,9 @@ namespace Template_for_ASP.NET___entity_framework.Services
         {
             this.database = database;
         }
-        public void AddLog(string method, string functionName, string parameters)
+        public void AddLog(string method, string functionName, string statusCode ,string parameters)
         {
-            database.Logs.Add(new Log(method, functionName, parameters));
+            database.Logs.Add(new Log(method, functionName, statusCode, parameters));
         }
     }
 }

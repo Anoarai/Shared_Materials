@@ -11,14 +11,14 @@ using Template_for_ASP.NET___entity_framework.Interfaces;
  * Required implementations:
  * 
  * app.UseMiddleware<LoggingMiddleware>();                    --- After .UseRouting !!!
- * builder.Services.AddSingleton<***LogService***>();         --- *** Your Version of Logging Service / Scoped if using database
+ * builder.Services.AddTransient<ILogService, LogService>();  --- *** Your Version of Logging Service / Singleton if using database
  * Log Class                                                  --- Your version of Log Class
  * 
  * Replace the the specific items on the marked lines with ????
  */
 
 
-namespace Template_for_ASP.NET___entity_framework
+namespace FoxClub
 {
     public class LoggingMiddleware
     {
@@ -29,8 +29,10 @@ namespace Template_for_ASP.NET___entity_framework
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext, ILogService logService)
+        public async Task Invoke(HttpContext httpContext, LogService logService) // ????
         {
+            await _next(httpContext);
+
             var method = httpContext.Request.Method.ToString(); //Get Method (Post, Get)
             string functionName = string.Empty;
 
@@ -65,17 +67,26 @@ namespace Template_for_ASP.NET___entity_framework
 
 
                 var calledParameters = string.Join(";;", dataQuery); // All of the called paremeters joined into a single string:
-                
-                logService.AddLog(method, functionName, calledParameters);
+                var statusCode = httpContext.Response.StatusCode; //Get Status Code of response.
+
+                logService.AddLog(
+                        method,
+                        functionName,
+                        statusCode
+                        calledParameters);
             }
             else if (method == "GET") //Reads QueryString
             {
                 var query = HttpUtility.ParseQueryString(httpContext.Request.QueryString.ToString());
+                var calledParameters = string.Join(";;", query); // All of the called paremeters joined into a single string:
+                var statusCode = httpContext.Response.StatusCode; //Get Status Code of response.
 
-                var calledParameters = string.Join(";;", query);
-                logService.AddLog(method, functionName, calledParameters);
+                logService.AddLog(
+                        method,
+                        functionName,
+                        statusCode,
+                        calledParameters);
             }
-            return _next(httpContext);
         }
     }
 
