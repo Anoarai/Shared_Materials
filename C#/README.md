@@ -14,4 +14,4 @@ C# Tools
 
 
 Known Issues:
-!!!Logging Middleware does not function with Json input!!!
+ - !!!Logging Middleware does not function with Json input!!!
