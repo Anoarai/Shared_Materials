@@ -11,7 +11,10 @@ C# Language - Visual Studio:
 
 
 CSS Tools:
-
+ - [Adjustements of borders](https://9elements.github.io/fancy-border-radius/full-control.html)
+ - [Random background shapes for Div element](https://bennettfeely.com/clippy/)
+ - [Gradient Colors](https://cssgradient.io/)
+ - [AutoDrawing Machine Learning](https://www.autodraw.com/)
 
 
 Java:
