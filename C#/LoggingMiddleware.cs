@@ -28,8 +28,10 @@ namespace FoxClub
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext, LogService logService) // ????
+        public async Task Invoke(HttpContext httpContext, LogService logService) // ????
         {
+            await _next(httpContext);
+
             var method = httpContext.Request.Method.ToString(); //Get Method (Post, Get)
             string functionName = string.Empty;
 
@@ -62,25 +64,28 @@ namespace FoxClub
                 dataReq.Body.Position = 0;
                 dataQuery.Remove("__RequestVerificationToken"); //Removing automaticly generated line
 
-                
+
                 var calledParameters = string.Join(";;", dataQuery); // All of the called paremeters joined into a single string:
+                var statusCode = httpContext.Response.StatusCode; //Get Status Code of response.
 
                 logService.AddLog(
                         method,
                         functionName,
+                        statusCode
                         calledParameters);
             }
             else if (method == "GET") //Reads QueryString
             {
                 var query = HttpUtility.ParseQueryString(httpContext.Request.QueryString.ToString());
                 var calledParameters = string.Join(";;", query); // All of the called paremeters joined into a single string:
-                
+                var statusCode = httpContext.Response.StatusCode; //Get Status Code of response.
+
                 logService.AddLog(
                         method,
                         functionName,
+                        statusCode,
                         calledParameters);
             }
-            return _next(httpContext);
         }
     }
 
